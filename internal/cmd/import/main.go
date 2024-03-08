@@ -19,8 +19,12 @@ const (
 	heroiconsRepo = "https://github.com/tailwindlabs/heroicons.git"
 	templTemplate = `package {{.Package}}
 
-templ {{.Name}}(attrs templ.Attributes) {
-{{.Content}}
+templ {{.Name}}() {
+	@{{.Name}}WithAttrs(templ.Attributes{})
+}
+
+templ {{.Name}}WithAttrs(attrs templ.Attributes) {
+	{{.Content}}
 }
 `
 )

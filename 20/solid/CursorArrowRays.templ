@@ -1,7 +1,11 @@
 package solid
 
-templ CursorArrowRays(attrs templ.Attributes) {
-<svg {attrs...} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+templ CursorArrowRays() {
+	@CursorArrowRaysWithAttrs(templ.Attributes{})
+}
+
+templ CursorArrowRaysWithAttrs(attrs templ.Attributes) {
+	<svg {attrs...} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M10 1C10.4142 1 10.75 1.33579 10.75 1.75V3.25C10.75 3.66421 10.4142 4 10 4C9.58579 4 9.25 3.66421 9.25 3.25V1.75C9.25 1.33579 9.58579 1 10 1Z" fill="#0F172A"/>
 <path d="M5.05025 3.05025C5.34315 2.75736 5.81802 2.75736 6.11091 3.05025L7.17157 4.11091C7.46447 4.40381 7.46447 4.87868 7.17157 5.17157C6.87868 5.46447 6.40381 5.46447 6.11091 5.17157L5.05025 4.11091C4.75736 3.81802 4.75736 3.34315 5.05025 3.05025Z" fill="#0F172A"/>
 <path d="M14.9497 3.05025C15.2426 3.34315 15.2426 3.81802 14.9497 4.11091L13.8891 5.17157C13.5962 5.46447 13.1213 5.46447 12.8284 5.17157C12.5355 4.87868 12.5355 4.40381 12.8284 4.11091L13.8891 3.05025C14.182 2.75736 14.6569 2.75736 14.9497 3.05025Z" fill="#0F172A"/>
