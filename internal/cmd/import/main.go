@@ -19,7 +19,7 @@ const (
 	heroiconsRepo = "https://github.com/tailwindlabs/heroicons.git"
 	templTemplate = `package {{.Package}}
 
-templ {{.Name}}() {
+templ {{.Name}}(classNames string) {
 {{.Content}}
 }
 `
@@ -88,7 +88,7 @@ func processFile(fs billy.Filesystem, p string) {
 
 	icon := Icon{
 		Name:    iconName(p),
-		Content: string(bytes),
+		Content: strings.Replace(string(bytes), "<svg ", "<svg class={classNames} ", 1),
 	}
 
 	t, err := template.New(icon.Name).Parse(templTemplate)
