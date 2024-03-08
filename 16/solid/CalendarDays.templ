@@ -1,7 +1,11 @@
 package solid
 
-templ CalendarDays(attrs templ.Attributes) {
-<svg {attrs...} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+templ CalendarDays() {
+	@CalendarDaysWithAttrs(templ.Attributes{})
+}
+
+templ CalendarDaysWithAttrs(attrs templ.Attributes) {
+	<svg {attrs...} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.75 7.5C5.33579 7.5 5 7.83579 5 8.25C5 8.66421 5.33579 9 5.75 9C6.16421 9 6.5 8.66421 6.5 8.25C6.5 7.83579 6.16421 7.5 5.75 7.5Z" fill="#0F172A"/>
 <path d="M5 10.25C5 9.83579 5.33579 9.5 5.75 9.5C6.16421 9.5 6.5 9.83579 6.5 10.25C6.5 10.6642 6.16421 11 5.75 11C5.33579 11 5 10.6642 5 10.25Z" fill="#0F172A"/>
 <path d="M10.25 7.5C9.83579 7.5 9.5 7.83579 9.5 8.25C9.5 8.66421 9.83579 9 10.25 9C10.6642 9 11 8.66421 11 8.25C11 7.83579 10.6642 7.5 10.25 7.5Z" fill="#0F172A"/>

@@ -1,7 +1,11 @@
 package solid
 
-templ Sun(attrs templ.Attributes) {
-<svg {attrs...} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+templ Sun() {
+	@SunWithAttrs(templ.Attributes{})
+}
+
+templ SunWithAttrs(attrs templ.Attributes) {
+	<svg {attrs...} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1C8.41421 1 8.75 1.33579 8.75 1.75V3.25C8.75 3.66421 8.41421 4 8 4C7.58579 4 7.25 3.66421 7.25 3.25V1.75C7.25 1.33579 7.58579 1 8 1Z" fill="black"/>
 <path d="M10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="black"/>
 <path d="M12.9498 4.11089C13.2427 3.81799 13.2427 3.34312 12.9498 3.05023C12.6569 2.75733 12.182 2.75733 11.8891 3.05023L10.8284 4.11089C10.5356 4.40378 10.5356 4.87865 10.8284 5.17155C11.1213 5.46444 11.5962 5.46444 11.8891 5.17155L12.9498 4.11089Z" fill="black"/>
