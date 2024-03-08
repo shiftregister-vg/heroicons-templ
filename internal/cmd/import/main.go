@@ -17,7 +17,7 @@ import (
 
 const (
 	heroiconsRepo = "https://github.com/tailwindlabs/heroicons.git"
-	templTemplate = `package heroicons
+	templTemplate = `package {{.Package}}
 
 templ {{.Name}}() {
 {{.Content}}
@@ -28,6 +28,7 @@ templ {{.Name}}() {
 type Icon struct {
 	Name    string
 	Content string
+	Package string
 }
 
 func main() {
@@ -71,10 +72,10 @@ func walkDir(fs billy.Filesystem, parent string, fileInfos []os.FileInfo) {
 	}
 }
 
-func processFile(fs billy.Filesystem, path string) {
-	println("Processing " + path)
+func processFile(fs billy.Filesystem, p string) {
+	println("Processing " + p)
 
-	file, err := fs.Open(path)
+	file, err := fs.Open(p)
 	if err != nil {
 		panic(err)
 	}
@@ -86,7 +87,7 @@ func processFile(fs billy.Filesystem, path string) {
 	}
 
 	icon := Icon{
-		Name:    iconName(path),
+		Name:    iconName(p),
 		Content: string(bytes),
 	}
 
@@ -95,7 +96,23 @@ func processFile(fs billy.Filesystem, path string) {
 		panic(err)
 	}
 
-	if err = t.Execute(os.Stdout, icon); err != nil {
+	dir, _ := path.Split(p)
+	dir = strings.ReplaceAll(dir, "src/", "")
+	_, pkg := path.Split(trimSuffix(dir, "/"))
+	icon.Package = pkg
+
+	err = os.MkdirAll(dir, os.ModePerm)
+	if err != nil {
+		panic(err)
+	}
+
+	f, err := os.Create(path.Join(dir, icon.Name+".templ"))
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	if err = t.Execute(f, icon); err != nil {
 		panic(err)
 	}
 }
@@ -109,4 +126,11 @@ func iconName(p string) string {
 		out = out + caser.String(part)
 	}
 	return out
+}
+
+func trimSuffix(s, suffix string) string {
+	if strings.HasSuffix(s, suffix) {
+		s = s[:len(s)-len(suffix)]
+	}
+	return s
 }

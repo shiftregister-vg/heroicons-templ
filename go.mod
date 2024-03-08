@@ -3,6 +3,7 @@ module github.com/stevegood/heroicons-templ
 go 1.22.0
 
 require (
+	github.com/a-h/templ v0.2.598
 	github.com/go-git/go-billy/v5 v5.5.0
 	github.com/go-git/go-git/v5 v5.11.0
 	golang.org/x/text v0.14.0
