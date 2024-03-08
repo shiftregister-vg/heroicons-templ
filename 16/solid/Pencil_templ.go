@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Pencil(classNames string) templ.Component {
+func Pencil(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func Pencil(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.0126 2.51256C11.696 1.82915 12.804 1.82915 13.4875 2.51256C14.1709 3.19598 14.1709 4.30402 13.4875 4.98744L6.22604 12.2489C5.97066 12.5042 5.66748 12.7068 5.33382 12.845L3.28702 13.6928C3.00676 13.8088 2.68417 13.7447 2.46968 13.5302C2.25519 13.3157 2.19103 12.9931 2.30712 12.7128L3.15488 10.6663C3.29308 10.3327 3.49563 10.0295 3.75098 9.77417L11.0126 2.51256Z\" fill=\"#0F172A\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11.0126 2.51256C11.696 1.82915 12.804 1.82915 13.4875 2.51256C14.1709 3.19598 14.1709 4.30402 13.4875 4.98744L6.22604 12.2489C5.97066 12.5042 5.66748 12.7068 5.33382 12.845L3.28702 13.6928C3.00676 13.8088 2.68417 13.7447 2.46968 13.5302C2.25519 13.3157 2.19103 12.9931 2.30712 12.7128L3.15488 10.6663C3.29308 10.3327 3.49563 10.0295 3.75098 9.77417L11.0126 2.51256Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func VideoCamera(classNames string) templ.Component {
+func VideoCamera(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func VideoCamera(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 4C1.89543 4 1 4.89543 1 6V10C1 11.1046 1.89543 12 3 12H8C9.10457 12 10 11.1046 10 10V6C10 4.89543 9.10457 4 8 4H3Z\" fill=\"black\"></path> <path d=\"M15 4.75002C15 4.44668 14.8173 4.1732 14.537 4.05711C14.2568 3.94103 13.9342 4.00519 13.7197 4.21969L11.7197 6.21969C11.579 6.36034 11.5 6.55111 11.5 6.75002V9.25002C11.5 9.44893 11.579 9.6397 11.7197 9.78035L13.7197 11.7804C13.9342 11.9949 14.2568 12.059 14.537 11.9429C14.8173 11.8268 15 11.5534 15 11.25V4.75002Z\" fill=\"black\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 4C1.89543 4 1 4.89543 1 6V10C1 11.1046 1.89543 12 3 12H8C9.10457 12 10 11.1046 10 10V6C10 4.89543 9.10457 4 8 4H3Z\" fill=\"black\"></path> <path d=\"M15 4.75002C15 4.44668 14.8173 4.1732 14.537 4.05711C14.2568 3.94103 13.9342 4.00519 13.7197 4.21969L11.7197 6.21969C11.579 6.36034 11.5 6.55111 11.5 6.75002V9.25002C11.5 9.44893 11.579 9.6397 11.7197 9.78035L13.7197 11.7804C13.9342 11.9949 14.2568 12.059 14.537 11.9429C14.8173 11.8268 15 11.5534 15 11.25V4.75002Z\" fill=\"black\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
