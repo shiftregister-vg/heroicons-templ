@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Moon(classNames string) templ.Component {
+func Moon(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func Moon(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.438 10.1477C14.6278 9.72286 14.1166 9.36124 13.6899 9.54667C13.0188 9.83824 12.2783 9.9999 11.5 9.9999C8.46243 9.9999 6 7.53747 6 4.4999C6 3.72165 6.16164 2.98114 6.45319 2.31014C6.63861 1.88337 6.27698 1.37223 5.85212 1.56197C3.58205 2.57578 2 4.85312 2 7.49997C2 11.0898 4.91015 14 8.5 14C11.1469 14 13.4243 12.4179 14.438 10.1477Z\" fill=\"#0F172A\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.438 10.1477C14.6278 9.72286 14.1166 9.36124 13.6899 9.54667C13.0188 9.83824 12.2783 9.9999 11.5 9.9999C8.46243 9.9999 6 7.53747 6 4.4999C6 3.72165 6.16164 2.98114 6.45319 2.31014C6.63861 1.88337 6.27698 1.37223 5.85212 1.56197C3.58205 2.57578 2 4.85312 2 7.49997C2 11.0898 4.91015 14 8.5 14C11.1469 14 13.4243 12.4179 14.438 10.1477Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

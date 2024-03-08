@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func ChatBubbleOvalLeft(classNames string) templ.Component {
+func ChatBubbleOvalLeft(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func ChatBubbleOvalLeft(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1 8C1 4.5691 4.26184 2 8 2C11.7382 2 15 4.5691 15 8C15 11.4309 11.7382 14 8 14C7.57698 14 7.16215 13.9679 6.7588 13.9061C5.85852 14.4801 4.81757 14.8544 3.6995 14.9654C3.41604 14.9936 3.1411 14.8587 2.98983 14.6174C2.83857 14.376 2.83711 14.0698 2.98605 13.8269C3.21838 13.4482 3.38055 13.0221 3.45459 12.5659C1.97915 11.4858 1 9.86014 1 8Z\" fill=\"black\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1 8C1 4.5691 4.26184 2 8 2C11.7382 2 15 4.5691 15 8C15 11.4309 11.7382 14 8 14C7.57698 14 7.16215 13.9679 6.7588 13.9061C5.85852 14.4801 4.81757 14.8544 3.6995 14.9654C3.41604 14.9936 3.1411 14.8587 2.98983 14.6174C2.83857 14.376 2.83711 14.0698 2.98605 13.8269C3.21838 13.4482 3.38055 13.0221 3.45459 12.5659C1.97915 11.4858 1 9.86014 1 8Z\" fill=\"black\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

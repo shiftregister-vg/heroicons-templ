@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Backward(classNames string) templ.Component {
+func Backward(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func Backward(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.19475 18.4394C10.4447 19.1536 12 18.2511 12 16.8114V14.4709L18.9447 18.4394C20.1947 19.1536 21.75 18.2511 21.75 16.8114L21.75 8.68856C21.75 7.24889 20.1947 6.34633 18.9447 7.06061L12 11.029V8.68856C12 7.24889 10.4447 6.34633 9.19475 7.06061L2.08726 11.122C0.827605 11.8418 0.827603 13.6581 2.08726 14.3779L9.19475 18.4394Z\" fill=\"#0F172A\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.19475 18.4394C10.4447 19.1536 12 18.2511 12 16.8114V14.4709L18.9447 18.4394C20.1947 19.1536 21.75 18.2511 21.75 16.8114L21.75 8.68856C21.75 7.24889 20.1947 6.34633 18.9447 7.06061L12 11.029V8.68856C12 7.24889 10.4447 6.34633 9.19475 7.06061L2.08726 11.122C0.827605 11.8418 0.827603 13.6581 2.08726 14.3779L9.19475 18.4394Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

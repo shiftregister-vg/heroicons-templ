@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func FolderOpen(classNames string) templ.Component {
+func FolderOpen(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func FolderOpen(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 3.5C3 2.67157 3.67157 2 4.5 2H6.37868C6.7765 2 7.15804 2.15804 7.43934 2.43934L8.56066 3.56066C8.84196 3.84197 9.2235 4 9.62132 4H11.5C12.3284 4 13 4.67157 13 5.5V6.5H3V3.5Z\" fill=\"black\"></path> <path d=\"M3.08123 8C2.05739 8 1.33444 9.00305 1.6582 9.97434L2.6582 12.9743C2.86237 13.5869 3.43558 14 4.08123 14H11.919C12.5646 14 13.1378 13.5869 13.342 12.9743L14.342 9.97434C14.6657 9.00305 13.9428 8 12.919 8H3.08123Z\" fill=\"black\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 3.5C3 2.67157 3.67157 2 4.5 2H6.37868C6.7765 2 7.15804 2.15804 7.43934 2.43934L8.56066 3.56066C8.84196 3.84197 9.2235 4 9.62132 4H11.5C12.3284 4 13 4.67157 13 5.5V6.5H3V3.5Z\" fill=\"black\"></path> <path d=\"M3.08123 8C2.05739 8 1.33444 9.00305 1.6582 9.97434L2.6582 12.9743C2.86237 13.5869 3.43558 14 4.08123 14H11.919C12.5646 14 13.1378 13.5869 13.342 12.9743L14.342 9.97434C14.6657 9.00305 13.9428 8 12.919 8H3.08123Z\" fill=\"black\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

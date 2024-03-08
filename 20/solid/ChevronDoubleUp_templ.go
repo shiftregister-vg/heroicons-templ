@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func ChevronDoubleUp(classNames string) templ.Component {
+func ChevronDoubleUp(attrs templ.Attributes) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,15 @@ func ChevronDoubleUp(classNames string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{classNames}
-		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, attrs)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.46967 4.71967C9.76256 4.42678 10.2374 4.42678 10.5303 4.71967L14.7803 8.96967C15.0732 9.26256 15.0732 9.73744 14.7803 10.0303C14.4874 10.3232 14.0126 10.3232 13.7197 10.0303L10 6.31066L6.28033 10.0303C5.98744 10.3232 5.51256 10.3232 5.21967 10.0303C4.92678 9.73744 4.92678 9.26256 5.21967 8.96967L9.46967 4.71967ZM5.21967 13.9697L9.46967 9.71967C9.76256 9.42678 10.2374 9.42678 10.5303 9.71967L14.7803 13.9697C15.0732 14.2626 15.0732 14.7374 14.7803 15.0303C14.4874 15.3232 14.0126 15.3232 13.7197 15.0303L10 11.3107L6.28033 15.0303C5.98744 15.3232 5.51256 15.3232 5.21967 15.0303C4.92678 14.7374 4.92678 14.2626 5.21967 13.9697Z\" fill=\"#0F172A\"></path></svg>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.46967 4.71967C9.76256 4.42678 10.2374 4.42678 10.5303 4.71967L14.7803 8.96967C15.0732 9.26256 15.0732 9.73744 14.7803 10.0303C14.4874 10.3232 14.0126 10.3232 13.7197 10.0303L10 6.31066L6.28033 10.0303C5.98744 10.3232 5.51256 10.3232 5.21967 10.0303C4.92678 9.73744 4.92678 9.26256 5.21967 8.96967L9.46967 4.71967ZM5.21967 13.9697L9.46967 9.71967C9.76256 9.42678 10.2374 9.42678 10.5303 9.71967L14.7803 13.9697C15.0732 14.2626 15.0732 14.7374 14.7803 15.0303C14.4874 15.3232 14.0126 15.3232 13.7197 15.0303L10 11.3107L6.28033 15.0303C5.98744 15.3232 5.51256 15.3232 5.21967 15.0303C4.92678 14.7374 4.92678 14.2626 5.21967 13.9697Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
