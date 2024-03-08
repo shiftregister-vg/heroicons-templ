@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Newspaper() templ.Component {
+func Newspaper(classNames string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,20 @@ func Newspaper() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10 3C10 2.44772 9.55229 2 9 2H3C2.44772 2 2 2.44772 2 3V12C2 13.1046 2.89543 14 4 14H12C10.8954 14 10 13.1046 10 12V3ZM4 4H8V6H4V4ZM8 7.5H4V9H8V7.5ZM4 10.5H8V12H4V10.5Z\" fill=\"black\"></path> <path d=\"M13 5H11.5V11.25C11.5 11.9404 12.0596 12.5 12.75 12.5C13.4404 12.5 14 11.9404 14 11.25V6C14 5.44772 13.5523 5 13 5Z\" fill=\"black\"></path></svg>")
+		var templ_7745c5c3_Var2 = []any{classNames}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10 3C10 2.44772 9.55229 2 9 2H3C2.44772 2 2 2.44772 2 3V12C2 13.1046 2.89543 14 4 14H12C10.8954 14 10 13.1046 10 12V3ZM4 4H8V6H4V4ZM8 7.5H4V9H8V7.5ZM4 10.5H8V12H4V10.5Z\" fill=\"black\"></path> <path d=\"M13 5H11.5V11.25C11.5 11.9404 12.0596 12.5 12.75 12.5C13.4404 12.5 14 11.9404 14 11.25V6C14 5.44772 13.5523 5 13 5Z\" fill=\"black\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func ChevronLeft() templ.Component {
+func ChevronLeft(classNames string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,20 @@ func ChevronLeft() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.78033 4.21967C10.0732 4.51256 10.0732 4.98744 9.78033 5.28033L7.06066 8L9.78033 10.7197C10.0732 11.0126 10.0732 11.4874 9.78033 11.7803C9.48744 12.0732 9.01256 12.0732 8.71967 11.7803L5.46967 8.53033C5.17678 8.23744 5.17678 7.76256 5.46967 7.46967L8.71967 4.21967C9.01256 3.92678 9.48744 3.92678 9.78033 4.21967Z\" fill=\"black\"></path></svg>")
+		var templ_7745c5c3_Var2 = []any{classNames}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.78033 4.21967C10.0732 4.51256 10.0732 4.98744 9.78033 5.28033L7.06066 8L9.78033 10.7197C10.0732 11.0126 10.0732 11.4874 9.78033 11.7803C9.48744 12.0732 9.01256 12.0732 8.71967 11.7803L5.46967 8.53033C5.17678 8.23744 5.17678 7.76256 5.46967 7.46967L8.71967 4.21967C9.01256 3.92678 9.48744 3.92678 9.78033 4.21967Z\" fill=\"black\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

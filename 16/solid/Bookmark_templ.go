@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Bookmark() templ.Component {
+func Bookmark(classNames string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,20 @@ func Bookmark() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3.75 2C3.33579 2 3 2.33579 3 2.75V13.25C3 13.5533 3.18273 13.8268 3.46299 13.9429C3.74324 14.059 4.06583 13.9948 4.28033 13.7803L8 10.0607L11.7197 13.7803C11.9342 13.9948 12.2568 14.059 12.537 13.9429C12.8173 13.8268 13 13.5533 13 13.25V2.75C13 2.33579 12.6642 2 12.25 2H3.75Z\" fill=\"#0F172A\"></path></svg>")
+		var templ_7745c5c3_Var2 = []any{classNames}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3.75 2C3.33579 2 3 2.33579 3 2.75V13.25C3 13.5533 3.18273 13.8268 3.46299 13.9429C3.74324 14.059 4.06583 13.9948 4.28033 13.7803L8 10.0607L11.7197 13.7803C11.9342 13.9948 12.2568 14.059 12.537 13.9429C12.8173 13.8268 13 13.5533 13 13.25V2.75C13 2.33579 12.6642 2 12.25 2H3.75Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

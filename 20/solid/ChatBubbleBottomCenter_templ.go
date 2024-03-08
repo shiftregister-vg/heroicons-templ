@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func ChatBubbleBottomCenter() templ.Component {
+func ChatBubbleBottomCenter(classNames string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,20 @@ func ChatBubbleBottomCenter() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3.42976 2.52374C5.56943 2.17905 7.76407 2 10 2C12.2359 2 14.4306 2.17905 16.5702 2.52374C18.0066 2.75513 19 4.01325 19 5.42588V10.5741C19 11.9867 18.0066 13.2449 16.5702 13.4763C15.4024 13.6644 14.2181 13.8032 13.0196 13.8905C12.7399 13.9108 12.4988 14.0703 12.3775 14.3035L10.6654 17.596C10.5363 17.8443 10.2798 18 10 18C9.7202 18 9.46367 17.8443 9.33459 17.596L7.62247 14.3035C7.5012 14.0703 7.2601 13.9108 6.9804 13.8905C5.78193 13.8032 4.59764 13.6644 3.42976 13.4763C1.99338 13.2449 1 11.9867 1 10.5741V5.42588C1 4.01325 1.99339 2.75513 3.42976 2.52374Z\" fill=\"#0F172A\"></path></svg>")
+		var templ_7745c5c3_Var2 = []any{classNames}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ.CSSClasses(templ_7745c5c3_Var2).String()))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3.42976 2.52374C5.56943 2.17905 7.76407 2 10 2C12.2359 2 14.4306 2.17905 16.5702 2.52374C18.0066 2.75513 19 4.01325 19 5.42588V10.5741C19 11.9867 18.0066 13.2449 16.5702 13.4763C15.4024 13.6644 14.2181 13.8032 13.0196 13.8905C12.7399 13.9108 12.4988 14.0703 12.3775 14.3035L10.6654 17.596C10.5363 17.8443 10.2798 18 10 18C9.7202 18 9.46367 17.8443 9.33459 17.596L7.62247 14.3035C7.5012 14.0703 7.2601 13.9108 6.9804 13.8905C5.78193 13.8032 4.59764 13.6644 3.42976 13.4763C1.99338 13.2449 1 11.9867 1 10.5741V5.42588C1 4.01325 1.99339 2.75513 3.42976 2.52374Z\" fill=\"#0F172A\"></path></svg>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
