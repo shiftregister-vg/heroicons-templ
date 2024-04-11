@@ -4,7 +4,7 @@ Provides heroicons for Go projects that use templ
 ## Install
 
 ```bash
-go get github.com/stevegood/heroicons-templ/v2
+go get github.com/shiftregister-vg/heroicons-templ/v2
 ```
 
 ## Usave
@@ -14,7 +14,7 @@ Within your templ template you could do the following:
 ```templ
 package templates
 
-import "github.com/stevegood/heroicons-templ/v2/24/outline"
+import "github.com/shiftregister-vg/heroicons-templ/v2/24/outline"
 
 templ MyTemplate() {
   <div>
@@ -29,7 +29,7 @@ Or with attributes (this will override the default attribute values if any are s
 ```templ
 package templates
 
-import "github.com/stevegood/heroicons-templ/v2/24/outline"
+import "github.com/shiftregister-vg/heroicons-templ/v2/24/outline"
 
 templ MyTemplate() {
   <div>

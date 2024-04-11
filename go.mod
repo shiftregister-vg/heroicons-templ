@@ -1,4 +1,4 @@
-module github.com/stevegood/heroicons-templ/v2
+module github.com/shiftregister-vg/heroicons-templ/v2
 
 go 1.22.0
 
